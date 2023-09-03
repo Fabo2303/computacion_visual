@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "semana1",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "semana1::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-semana1-Debug-4d4eba8af5a8f321df47.json",
+					"name" : "semana1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "taller01_b::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-taller01_b-Debug-3c13360b18689f96856c.json",
+					"name" : "taller01_b",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "taller01_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-taller01_c-Debug-1533adf7ba4ea84875f6.json",
+					"name" : "taller01_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "taller01_d::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-taller01_d-Debug-6d4bc746b97da20fc828.json",
+					"name" : "taller01_d",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/fabia/CLionProjects/CompuVisual/semana1/cmake-build-debug",
+		"source" : "C:/Users/fabia/CLionProjects/CompuVisual/semana1"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
