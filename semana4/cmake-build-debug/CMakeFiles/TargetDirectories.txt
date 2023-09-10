@@ -1,0 +1,4 @@
+C:/Users/fabia/CLionProjects/CompuVisual/semana4/cmake-build-debug/CMakeFiles/Main.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana4/cmake-build-debug/CMakeFiles/taller04_a.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

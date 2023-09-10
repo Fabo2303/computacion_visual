@@ -3,18 +3,29 @@ project(semana3)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(main main.cpp)
-add_executable(taller03_a ejercicio3a.cpp)
-add_executable(taller03_b ejercicio4a.cpp)
+cmake_minimum_required(VERSION 3.26)
+project(semana2)
 
-target_link_libraries(main ${OPENGL_LIBRARIES})
-target_link_libraries(main ${GLUT_LIBRARIES})
-target_link_libraries(main -lfreeglut -lglu32 -lopengl32)
+set(CMAKE_CXX_STANDARD 17)
 
-target_link_libraries(taller03_a ${OPENGL_LIBRARIES})
-target_link_libraries(taller03_a ${GLUT_LIBRARIES})
-target_link_libraries(taller03_a -lfreeglut -lglu32 -lopengl32)
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
 
-target_link_libraries(taller03_b ${OPENGL_LIBRARIES})
-target_link_libraries(taller03_b ${GLUT_LIBRARIES})
-target_link_libraries(taller03_b -lfreeglut -lglu32 -lopengl32)
+set(COMMON_LIBS
+        ${OPENGL_LIBRARIES}
+        ${GLUT_LIBRARIES}
+        -lfreeglut
+        -lglu32
+        -lopengl32
+)
+
+function(add_gl_executable target_name source_file)
+    add_executable(${target_name} ${source_file})
+    target_link_libraries(${target_name} ${COMMON_LIBS})
+endfunction()
+
+add_gl_executable(taller03 main.cpp)
+add_gl_executable(taller03_c ejercicio2a.cpp)
+add_gl_executable(taller03_a ejercicio3a.cpp)
+add_gl_executable(taller03_b ejercicio4a.cpp)
+add_gl_executable(taller03_d ejercicio5a.cpp)

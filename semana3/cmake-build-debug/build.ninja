@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: semana3
+# Project: semana2
 # Configurations: Debug
 # =============================================================================
 
@@ -41,37 +41,70 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target main
+# Object build statements for EXECUTABLE target taller03
 
 
 #############################################
-# Order-only phony target for main
+# Order-only phony target for taller03
 
-build cmake_object_order_depends_target_main: phony || CMakeFiles/main.dir
+build cmake_object_order_depends_target_taller03: phony || CMakeFiles/taller03.dir
 
-build CMakeFiles/main.dir/main.cpp.obj: CXX_COMPILER__main_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana3/main.cpp || cmake_object_order_depends_target_main
-  DEP_FILE = CMakeFiles\main.dir\main.cpp.obj.d
+build CMakeFiles/taller03.dir/main.cpp.obj: CXX_COMPILER__taller03_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana3/main.cpp || cmake_object_order_depends_target_taller03
+  DEP_FILE = CMakeFiles\taller03.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\main.dir
-  OBJECT_FILE_DIR = CMakeFiles\main.dir
+  OBJECT_DIR = CMakeFiles\taller03.dir
+  OBJECT_FILE_DIR = CMakeFiles\taller03.dir
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target main
+# Link build statements for EXECUTABLE target taller03
 
 
 #############################################
-# Link the executable main.exe
+# Link the executable taller03.exe
 
-build main.exe: CXX_EXECUTABLE_LINKER__main_Debug CMakeFiles/main.dir/main.cpp.obj
+build taller03.exe: CXX_EXECUTABLE_LINKER__taller03_Debug CMakeFiles/taller03.dir/main.cpp.obj | C$:/MinGW/lib/freeglut.lib
   FLAGS = -g
-  LINK_LIBRARIES = -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\main.dir
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\taller03.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = main.exe
-  TARGET_IMPLIB = libmain.dll.a
-  TARGET_PDB = main.exe.dbg
+  TARGET_FILE = taller03.exe
+  TARGET_IMPLIB = libtaller03.dll.a
+  TARGET_PDB = taller03.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target taller03_c
+
+
+#############################################
+# Order-only phony target for taller03_c
+
+build cmake_object_order_depends_target_taller03_c: phony || CMakeFiles/taller03_c.dir
+
+build CMakeFiles/taller03_c.dir/ejercicio2a.cpp.obj: CXX_COMPILER__taller03_c_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana3/ejercicio2a.cpp || cmake_object_order_depends_target_taller03_c
+  DEP_FILE = CMakeFiles\taller03_c.dir\ejercicio2a.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\taller03_c.dir
+  OBJECT_FILE_DIR = CMakeFiles\taller03_c.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target taller03_c
+
+
+#############################################
+# Link the executable taller03_c.exe
+
+build taller03_c.exe: CXX_EXECUTABLE_LINKER__taller03_c_Debug CMakeFiles/taller03_c.dir/ejercicio2a.cpp.obj | C$:/MinGW/lib/freeglut.lib
+  FLAGS = -g
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\taller03_c.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = taller03_c.exe
+  TARGET_IMPLIB = libtaller03_c.dll.a
+  TARGET_PDB = taller03_c.exe.dbg
 
 # =============================================================================
 # Object build statements for EXECUTABLE target taller03_a
@@ -96,9 +129,9 @@ build CMakeFiles/taller03_a.dir/ejercicio3a.cpp.obj: CXX_COMPILER__taller03_a_un
 #############################################
 # Link the executable taller03_a.exe
 
-build taller03_a.exe: CXX_EXECUTABLE_LINKER__taller03_a_Debug CMakeFiles/taller03_a.dir/ejercicio3a.cpp.obj
+build taller03_a.exe: CXX_EXECUTABLE_LINKER__taller03_a_Debug CMakeFiles/taller03_a.dir/ejercicio3a.cpp.obj | C$:/MinGW/lib/freeglut.lib
   FLAGS = -g
-  LINK_LIBRARIES = -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\taller03_a.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -129,15 +162,48 @@ build CMakeFiles/taller03_b.dir/ejercicio4a.cpp.obj: CXX_COMPILER__taller03_b_un
 #############################################
 # Link the executable taller03_b.exe
 
-build taller03_b.exe: CXX_EXECUTABLE_LINKER__taller03_b_Debug CMakeFiles/taller03_b.dir/ejercicio4a.cpp.obj
+build taller03_b.exe: CXX_EXECUTABLE_LINKER__taller03_b_Debug CMakeFiles/taller03_b.dir/ejercicio4a.cpp.obj | C$:/MinGW/lib/freeglut.lib
   FLAGS = -g
-  LINK_LIBRARIES = -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\taller03_b.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_FILE = taller03_b.exe
   TARGET_IMPLIB = libtaller03_b.dll.a
   TARGET_PDB = taller03_b.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target taller03_d
+
+
+#############################################
+# Order-only phony target for taller03_d
+
+build cmake_object_order_depends_target_taller03_d: phony || CMakeFiles/taller03_d.dir
+
+build CMakeFiles/taller03_d.dir/ejercicio5a.cpp.obj: CXX_COMPILER__taller03_d_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana3/ejercicio5a.cpp || cmake_object_order_depends_target_taller03_d
+  DEP_FILE = CMakeFiles\taller03_d.dir\ejercicio5a.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\taller03_d.dir
+  OBJECT_FILE_DIR = CMakeFiles\taller03_d.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target taller03_d
+
+
+#############################################
+# Link the executable taller03_d.exe
+
+build taller03_d.exe: CXX_EXECUTABLE_LINKER__taller03_d_Debug CMakeFiles/taller03_d.dir/ejercicio5a.cpp.obj | C$:/MinGW/lib/freeglut.lib
+  FLAGS = -g
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\taller03_d.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = taller03_d.exe
+  TARGET_IMPLIB = libtaller03_d.dll.a
+  TARGET_PDB = taller03_d.exe.dbg
 
 
 #############################################
@@ -165,11 +231,15 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build main: phony main.exe
+build taller03: phony taller03.exe
 
 build taller03_a: phony taller03_a.exe
 
 build taller03_b: phony taller03_b.exe
+
+build taller03_c: phony taller03_c.exe
+
+build taller03_d: phony taller03_d.exe
 
 # =============================================================================
 # Folder targets.
@@ -179,7 +249,7 @@ build taller03_b: phony taller03_b.exe
 #############################################
 # Folder: C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug
 
-build all: phony main.exe taller03_a.exe taller03_b.exe
+build all: phony taller03.exe taller03_c.exe taller03_a.exe taller03_b.exe taller03_d.exe
 
 # =============================================================================
 # Built-in targets
@@ -188,14 +258,14 @@ build all: phony main.exe taller03_a.exe taller03_b.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/fabia/CLionProjects/CompuVisual/semana3/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindGLUT.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenGL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Users/fabia/CLionProjects/CompuVisual/semana3/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Users/fabia/CLionProjects/CompuVisual/semana3/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
+build C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeRCInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Compiler/GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindGLUT.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenGL.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageHandleStandardArgs.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPackageMessage.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindPkgConfig.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/Windows.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Platform/WindowsPaths.cmake C$:/Program$ Files/JetBrains/CLion$ 2023.2/bin/cmake/win/x64/share/cmake-3.26/Modules/SelectLibraryConfigurations.cmake C$:/Users/fabia/CLionProjects/CompuVisual/semana3/CMakeLists.txt CMakeCache.txt CMakeFiles/3.26.4/CMakeCCompiler.cmake CMakeFiles/3.26.4/CMakeCXXCompiler.cmake CMakeFiles/3.26.4/CMakeRCCompiler.cmake CMakeFiles/3.26.4/CMakeSystem.cmake: phony
 
 
 #############################################
