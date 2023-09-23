@@ -1,0 +1,10 @@
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Main.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Ejemplo.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Jaja.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Prueba.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Ejercicio_1.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Ejercicio_2.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Ejercicio_3.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/Ejercicio_4.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
