@@ -319,6 +319,40 @@ build Ejercicio_4.exe: CXX_EXECUTABLE_LINKER__Ejercicio_4_Debug CMakeFiles/Ejerc
   TARGET_IMPLIB = libEjercicio_4.dll.a
   TARGET_PDB = Ejercicio_4.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Ejercicio_5
+
+
+#############################################
+# Order-only phony target for Ejercicio_5
+
+build cmake_object_order_depends_target_Ejercicio_5: phony || CMakeFiles/Ejercicio_5.dir
+
+build CMakeFiles/Ejercicio_5.dir/ejercicio5.cpp.obj: CXX_COMPILER__Ejercicio_5_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana5/ejercicio5.cpp || cmake_object_order_depends_target_Ejercicio_5
+  DEP_FILE = CMakeFiles\Ejercicio_5.dir\ejercicio5.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/fabia/CLionProjects/CompuVisual/semana5
+  OBJECT_DIR = CMakeFiles\Ejercicio_5.dir
+  OBJECT_FILE_DIR = CMakeFiles\Ejercicio_5.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Ejercicio_5
+
+
+#############################################
+# Link the executable Ejercicio_5.exe
+
+build Ejercicio_5.exe: CXX_EXECUTABLE_LINKER__Ejercicio_5_Debug CMakeFiles/Ejercicio_5.dir/ejercicio5.cpp.obj | C$:/MinGW/lib/freeglut.lib
+  FLAGS = -g
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Ejercicio_5.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Ejercicio_5.exe
+  TARGET_IMPLIB = libEjercicio_5.dll.a
+  TARGET_PDB = Ejercicio_5.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -355,6 +389,8 @@ build Ejercicio_3: phony Ejercicio_3.exe
 
 build Ejercicio_4: phony Ejercicio_4.exe
 
+build Ejercicio_5: phony Ejercicio_5.exe
+
 build Jaja: phony Jaja.exe
 
 build Main: phony Main.exe
@@ -369,7 +405,7 @@ build Prueba: phony Prueba.exe
 #############################################
 # Folder: C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug
 
-build all: phony Main.exe Ejemplo.exe Jaja.exe Prueba.exe Ejercicio_1.exe Ejercicio_2.exe Ejercicio_3.exe Ejercicio_4.exe
+build all: phony Main.exe Ejemplo.exe Jaja.exe Prueba.exe Ejercicio_1.exe Ejercicio_2.exe Ejercicio_3.exe Ejercicio_4.exe Ejercicio_5.exe
 
 # =============================================================================
 # Built-in targets
