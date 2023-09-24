@@ -23,7 +23,8 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9
 					]
 				}
 			],
@@ -46,7 +47,8 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9
 					]
 				}
 			],
@@ -92,6 +94,13 @@
 					"id" : "Ejercicio_5::@6890427a1f51a3e7e1df",
 					"jsonFile" : "target-Ejercicio_5-Debug-6ca43a60b552cba54925.json",
 					"name" : "Ejercicio_5",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Ejercicio_6::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Ejercicio_6-Debug-f8b6697faa86d2c60084.json",
+					"name" : "Ejercicio_6",
 					"projectIndex" : 0
 				},
 				{

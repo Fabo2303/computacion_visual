@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <gl/glut.h>
 #include <cmath>
+#include <iostream>
 
 GLfloat theta[] = {0.0, 0.0, 0.0};
 GLint eje = 2;
@@ -90,6 +91,9 @@ void teclado(unsigned char tecla,int x,int y){
         case 'e' : exit(0) ; break;
         default: break;
     }
+    std::cout<<"X: "<<perspectiveX<<std::endl;
+    std::cout<<"Y: "<<perspectiveY<<std::endl;
+    std::cout<<"Z: "<<perspectiveZ<<std::endl;
 }
 
 void myReshape(int w, int h){

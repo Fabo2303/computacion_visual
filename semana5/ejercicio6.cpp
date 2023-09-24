@@ -8,12 +8,12 @@ GLint eje = 2;
 float perspectiveX = 19, perspectiveY = 36, perspectiveZ = 0;
 //float ex, ez, ang = 0;
 
-void bolita() {
+void bolita(){
     glPushMatrix();
     glBegin(GL_LINES);
-    glColor3f(0, 0, 1);
-    glVertex3f(0, 0, 0);
-    glVertex3f(0, 6, 0);
+        glColor3f(0, 0, 1);
+        glVertex3f(0,0,0);
+        glVertex3f(0,6,0);
     glEnd();
     glTranslatef(0, 0, 0);
     glColor3f(0.0, 0.0, 0.0);
@@ -23,16 +23,7 @@ void bolita() {
     glPopMatrix();
 }
 
-void cara() {
-    glBegin(GL_QUADS);
-    glVertex3f(-0.5, -0.5, -0.5);
-    glVertex3f(0.5, -0.5, -0.5);
-    glVertex3f(0.5, 0.5, -0.5);
-    glVertex3f(-0.5, 0.5, -0.5);
-    glEnd();
-}
-
-void dibujarEjes() {
+void dibujarEjes(){
     float medida = 7.0;
     // Eje X (Rojo)
     glColor3f(1.0, 0.0, 0.0);
@@ -56,63 +47,33 @@ void dibujarEjes() {
     glEnd();
 }
 
-void soportes() {
-    // Cara frontal (roja)
+void tubo(){
     glPushMatrix();
-    glColor3f(1.0, 0.5, 1.0);
+    glBegin(GL_LINES);
+    glColor3f(0, 0, 1);
+    glVertex3f(0,0,0);
+    glVertex3f(0,6,0);
+    glEnd();
     glTranslatef(0, 0, 0);
-    glTranslatef(4.75, 1.9, -2.25);
-    glScalef(0.5, 6.7, 0.5);
-    cara();
-    glPopMatrix();
-
-    // Cara trasera (verde)
-    glPushMatrix();
-    glRotatef(180.0, 0.0, 1.0, 0.0);
-    glColor3f(0.0, 0.5, 1.0);
-    glTranslatef(-4.75, 1.9, 3.25);
-    glScalef(0.5, 6.7, 0.5);
-    cara();
-    glPopMatrix();
-
-    // Cara derecha (azul)
-    glPushMatrix();
-    glRotatef(90.0, 0.0, 1.0, 0.0);
-    glColor3f(0.0, 0.0, 1.0);
-    glTranslatef(2.75, 1.9, 4.75);
-    glScalef(0.5, 6.7, 0.5);
-    cara();
-    glPopMatrix();
-
-    // Cara izquierda (amarilla)
-    glPushMatrix();
-    glRotatef(-90.0, 0.0, 1.0, 0.0);
-    glColor3f(1.0, 1.0, 0.0);
-    glTranslatef(-2.75, 1.9, -4.75);
-    glScalef(0.5, 6.7, 0.5);
-    cara();
-    glPopMatrix();
-
-    // Cara superior (magenta)
-    glPushMatrix();
-    glRotatef(90.0, 1.0, 0.0, 0.0);
-    glColor3f(0.0, 1.0, 1.0);
-    glTranslatef(4.75, -2.75, -5);
-    glScalef(0.5, 0.5, 0.5);
-    cara();
-    glPopMatrix();
-
-    // Cara inferior (cian)
-    glPushMatrix();
-    glRotatef(-90.0, 1.0, 0.0, 0.0);
-    glColor3f(0.0, 1.0, 1.0);
-    glTranslatef(4.75, 2.75, -1.2);
-    glScalef(0.5, 0.5, 0.5);
-    cara();
+    glColor3f(0.0, 0.0, 0.0);
+    glutWireSphere(1.0, 20, 20);
+    glColor3f(1.0, 0.0, 0.0);
+    glutSolidSphere(1.0, 20, 20);
     glPopMatrix();
 }
 
-void base() {
+void cara()
+{
+    glBegin(GL_QUADS);
+    glVertex3f(-0.5, -0.5, -0.5);
+    glVertex3f(0.5, -0.5, -0.5);
+    glVertex3f(0.5, 0.5, -0.5);
+    glVertex3f(-0.5, 0.5, -0.5);
+    glEnd();
+}
+
+void base()
+{
     // Cara frontal (roja)
     glPushMatrix();
     glTranslatef(0, -2, 3.5);
@@ -167,26 +128,7 @@ void base() {
     glPopMatrix();
 }
 
-void cuatro_soportes(){
-    soportes();
-
-    glPushMatrix();
-    glTranslatef(0,0,5.5);
-    soportes();
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-9.5,0,5.5);
-    soportes();
-    glPopMatrix();
-
-    glPushMatrix();
-    glTranslatef(-9.5,0,0);
-    soportes();
-    glPopMatrix();
-}
-
-void display(void) {
+void display(void){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
     glPushMatrix();
@@ -197,74 +139,56 @@ void display(void) {
     glRotatef(perspectiveY, 0, 1, 0);
     glRotatef(perspectiveZ, 0, 0, 1);
 
-    glScalef(0.3, 0.3, 0.3);
+    glScalef(0.3,0.3,0.3);
 
     //ang <= 360 ? ang += 0.0005 : ang -= 360;
     //ex = 5.0 * sin(ang);
     //ez = 5.0 * cos(ang);
 
     dibujarEjes();
-    //bolita();
+    bolita();
     base();
-    cuatro_soportes();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
 }
-
 // esta función controla el angulo de rotación según el eje de giro
-void girar_objeto_geometrico() {
+void girar_objeto_geometrico(){
     theta[eje] += 0.02;
-    if (theta[eje] > 360) theta[eje] -= 360.0;
+    if(theta[eje]>360) theta[eje] -= 360.0;
     display();
 }
 
-void teclado(unsigned char tecla, int x, int y) {
-    switch (tecla) {
-        case 'a' :
-            eje = 0;
-            break;
-        case 's' :
-            eje = 1;
-            break;
-        case 'd' :
-            eje = 2;
-            break;
-        case 'x' :
-            perspectiveX++;
-            break;
-        case 'y' :
-            perspectiveY++;
-            break;
-        case 'z' :
-            perspectiveZ++;
-            break;
-        case 'e' :
-            exit(0);
-            break;
-        default:
-            break;
+void teclado(unsigned char tecla,int x,int y){
+    switch(tecla){
+        case 'a' : eje = 0; break;
+        case 's' : eje = 1; break;
+        case 'd' : eje = 2; break;
+        case 'x' : perspectiveX++; break;
+        case 'y' : perspectiveY++; break;
+        case 'z' : perspectiveZ++; break;
+        case 'e' : exit(0) ; break;
+        default: break;
     }
 }
 
-void myReshape(int w, int h) {
-    glViewport(0, 0, w, h);
+void myReshape(int w, int h){
+    glViewport(0,0,w,h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    if (w <= h)
-        glOrtho(-2.0, 2.0, -2.0 * (GLfloat) h / (GLfloat) w,
-                2.0 * (GLfloat) h / (GLfloat) w, -10.0, 10.0);
+    if(w <=h)
+        glOrtho(-2.0,2.0,-2.0*(GLfloat)h/(GLfloat)w,
+                2.0*(GLfloat)h/(GLfloat)w, -10.0, 10.0);
     else
-        glOrtho(-2.0 * (GLfloat) w / (GLfloat) h,
-                2.0 * (GLfloat) w / (GLfloat) h, -2.0, 2.0, -10.0, 10.0);
+        glOrtho(-2.0*(GLfloat)w/(GLfloat)h,
+                2.0*(GLfloat)w/(GLfloat)h, -2.0,2.0,-10.0,10.0);
     glMatrixMode(GL_MODELVIEW);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv){
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(1000, 1000);
-    glutInitWindowPosition(800, 100);
     glutCreateWindow("Pendulo");
     glClearColor(0.5, 0.5, 0.5, 1.0); // Gris
     glutReshapeFunc(myReshape);
