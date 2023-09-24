@@ -387,6 +387,40 @@ build Ejercicio_6.exe: CXX_EXECUTABLE_LINKER__Ejercicio_6_Debug CMakeFiles/Ejerc
   TARGET_IMPLIB = libEjercicio_6.dll.a
   TARGET_PDB = Ejercicio_6.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target Pr
+
+
+#############################################
+# Order-only phony target for Pr
+
+build cmake_object_order_depends_target_Pr: phony || CMakeFiles/Pr.dir
+
+build CMakeFiles/Pr.dir/pruebas_elipsticas.cpp.obj: CXX_COMPILER__Pr_unscanned_Debug C$:/Users/fabia/CLionProjects/CompuVisual/semana5/pruebas_elipsticas.cpp || cmake_object_order_depends_target_Pr
+  DEP_FILE = CMakeFiles\Pr.dir\pruebas_elipsticas.cpp.obj.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/fabia/CLionProjects/CompuVisual/semana5
+  OBJECT_DIR = CMakeFiles\Pr.dir
+  OBJECT_FILE_DIR = CMakeFiles\Pr.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target Pr
+
+
+#############################################
+# Link the executable Pr.exe
+
+build Pr.exe: CXX_EXECUTABLE_LINKER__Pr_Debug CMakeFiles/Pr.dir/pruebas_elipsticas.cpp.obj | C$:/MinGW/lib/freeglut.lib
+  FLAGS = -g
+  LINK_LIBRARIES = -lopengl32  -lglu32  C:/MinGW/lib/freeglut.lib  -lfreeglut  -lglu32  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\Pr.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = Pr.exe
+  TARGET_IMPLIB = libPr.dll.a
+  TARGET_PDB = Pr.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -431,6 +465,8 @@ build Jaja: phony Jaja.exe
 
 build Main: phony Main.exe
 
+build Pr: phony Pr.exe
+
 build Prueba: phony Prueba.exe
 
 # =============================================================================
@@ -441,7 +477,7 @@ build Prueba: phony Prueba.exe
 #############################################
 # Folder: C:/Users/fabia/CLionProjects/CompuVisual/semana5/cmake-build-debug
 
-build all: phony Main.exe Ejemplo.exe Jaja.exe Prueba.exe Ejercicio_1.exe Ejercicio_2.exe Ejercicio_3.exe Ejercicio_4.exe Ejercicio_5.exe Ejercicio_6.exe
+build all: phony Main.exe Ejemplo.exe Jaja.exe Prueba.exe Ejercicio_1.exe Ejercicio_2.exe Ejercicio_3.exe Ejercicio_4.exe Ejercicio_5.exe Ejercicio_6.exe Pr.exe
 
 # =============================================================================
 # Built-in targets

@@ -6,7 +6,7 @@
 GLfloat theta[] = {0.0, 0.0, 0.0};
 GLint eje = 2;
 float perspectiveX = 19, perspectiveY = 36, perspectiveZ = 0;
-float dx1, dy1, dx2, dy2, dx, dy;
+float dx1, dy1, dx2, dy2, dx, dy, dxc, dyc;
 bool turno1 = true, turno2 = false; // turno de la esfera a moverse
 float ang = 0;
 int i = 0;
@@ -218,37 +218,106 @@ void soportes(){
 }
 
 void pendulos(){
-    glPushMatrix();
-    glTranslatef(2, 0, 0);
-    esfera();
-    glPopMatrix();
 
     glPushMatrix();
+    esfera_movil(2, 0, 2);
+    glPopMatrix();
 
     if(turno1){
         dx1 = dx; dy1 = dy;
     }else{
         dx1 = 0; dy1 = 0;
     }
+
+    glPushMatrix();
     esfera_movil(4 + dx1,dy1, 4);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(0,0,0);
-    esfera();
+    esfera_movil(0,0,0);
     glPopMatrix();
 
     glPushMatrix();
-    glTranslatef(-2, 0, 0);
-    esfera();
+    esfera_movil(-2, 0, -2);
     glPopMatrix();
 
-    glPushMatrix();
     if(turno2){
         dx2 = dx; dy2 = dy;
     }else{
         dx2 = 0; dy2 = 0;
     }
+
+    glPushMatrix();
+    esfera_movil(-4 - dx2, dy2, -4);
+    glPopMatrix();
+}
+
+void pendulos2(){
+    if(turno1){
+        dx1 = dx; dy1 = dy;
+    }else{
+        dx1 = 0; dy1 = 0;
+    }
+    glPushMatrix();
+    esfera_movil(2 + dx1, dy1, 2);
+    glPopMatrix();
+
+    glPushMatrix();
+    esfera_movil(4 + dx1,dy1, 4);
+    glPopMatrix();
+
+    glPushMatrix();
+    esfera_movil(0,0,0);
+    glPopMatrix();
+
+    if(turno2){
+        dx2 = dx; dy2 = dy;
+    }else{
+        dx2 = 0; dy2 = 0;
+    }
+    glPushMatrix();
+    esfera_movil(-2 - dx2, dy2, -2);
+    glPopMatrix();
+
+    glPushMatrix();
+    esfera_movil(-4 - dx2, dy2, -4);
+    glPopMatrix();
+}
+
+void pendulos3(){
+    if(turno1){
+        dx1 = dx; dy1 = dy;
+    }else{
+        dx1 = 0; dy1 = 0;
+    }
+    glPushMatrix();
+    esfera_movil(2 + dx1, dy1, 2);
+    glPopMatrix();
+
+    glPushMatrix();
+    esfera_movil(4 + dx1,dy1, 4);
+    glPopMatrix();
+
+    if(turno1){
+        dxc = dx; dyc = dy;
+    }else if(turno2){
+        dxc = -dx; dyc = dy;
+    }
+
+    glPushMatrix();
+    esfera_movil(dxc,dyc,0);
+    glPopMatrix();
+
+    if(turno2){
+        dx2 = dx; dy2 = dy;
+    }else{
+        dx2 = 0; dy2 = 0;
+    }
+    glPushMatrix();
+    esfera_movil(-2 - dx2, dy2, -2);
+    glPopMatrix();
+
+    glPushMatrix();
     esfera_movil(-4 - dx2, dy2, -4);
     glPopMatrix();
 }
@@ -275,12 +344,10 @@ void display(void) {
     if(ang >= M_PI/6)  i = 1;
     dx = 7 * sin(ang);
     dy = 14 * sin(ang/2) * sin(ang/2);
-    // x +  7sen(30)
-    // y + 14 sen^2(15)
 
     dibujarEjes();
     soportes();
-    pendulos();
+    pendulos3();
 
     glFlush();
     glPopMatrix();
