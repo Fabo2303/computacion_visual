@@ -20,7 +20,7 @@ function(add_gl_executable target_name source_file)
     include_directories(${CMAKE_SOURCE_DIR})
 endfunction()
 
-add_gl_executable(Main main.cpp)
+add_gl_executable(Main primitive_quadri.cpp)
 add_gl_executable(Ejemplo ejemplo.cpp)
 add_gl_executable(Jaja jaja.cpp)
 add_gl_executable(Prueba cuboRotaConTeclado.cpp)

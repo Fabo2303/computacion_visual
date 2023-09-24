@@ -156,7 +156,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "primitive_quadri.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
