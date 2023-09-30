@@ -1,18 +1,17 @@
 #include <cstdlib>
 #include <gl/glut.h>
 #include <cmath>
-#include <iostream>
 
 GLfloat theta[] = {0.0, 0.0, 0.0};
 GLint eje = 2;
 float perspectiveX = 19, perspectiveY = 36, perspectiveZ = 0;
-float ex, ez;
+float ex, ey;
 float ang = 0.0;
 
 void esfera_movil(float trasladarX, float trasladarY) {
     glPushMatrix();
     glTranslatef(trasladarX, trasladarY, 0);
-    glColor3f(0.0, 0.0, 0.0);
+    glColor3f(.0, 1.0, 0.0);
     glutWireSphere(0.5, 50, 50);
     glColor3f(1.0, 0.0, 0.0);
     glutSolidSphere(0.5, 50, 50);
@@ -22,6 +21,7 @@ void esfera_movil(float trasladarX, float trasladarY) {
 void display(void) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
+
     // Point of View
     GLfloat x, y;
     glRotatef(perspectiveX, 1, 0, 0);
@@ -45,10 +45,15 @@ void display(void) {
 
     ang += 0.002;
     if (ang > 360) ang -= 360.0;
-    ex = 5.0 * sin(ang);
-    ez = 3.0 * cos(ang);
-    esfera_movil(ex, ez);
-
+    ex = 10.0 * sin(ang);
+    ey = 6.0 * cos(ang);
+    glPushMatrix();
+    glScalef(0.5, 0.5,0.5);
+    esfera_movil(ex, ey);
+    glPopMatrix();
+    glPushMatrix();
+    esfera_movil(4,0);
+    glPopMatrix();
     glFlush();
     glutSwapBuffers();
 }

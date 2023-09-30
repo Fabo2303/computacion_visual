@@ -347,7 +347,7 @@ void display(void) {
 
     dibujarEjes();
     soportes();
-    pendulos3();
+    pendulos2();
 
     glFlush();
     glPopMatrix();
