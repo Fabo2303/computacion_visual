@@ -1,7 +1,0 @@
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/taller03.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/taller03_c.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/taller03_a.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/taller03_b.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/taller03_d.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/fabia/CLionProjects/CompuVisual/semana3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
