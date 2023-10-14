@@ -66,7 +66,7 @@ void girar_objeto_geometrico() {
     display();
 }
 
-void teclado(unsigned char tecla, int x, int y) {
+void keyboard(unsigned char tecla, int x, int y) {
     switch (tecla) {
         case 'a':
             eje = 0;
@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
     glutIdleFunc(girar_objeto_geometrico);
-    glutKeyboardFunc(teclado);
+    glutKeyboardFunc(keyboard);
     glEnable(GL_DEPTH_TEST);
     glutMainLoop();
     return 0;
