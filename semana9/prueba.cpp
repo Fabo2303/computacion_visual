@@ -4,7 +4,7 @@
 #define miLista 1
 
 GLfloat theta[] = {0.0, 0.0, 0.0};
-GLint eje = 1;
+GLint eje = 2;
 GLfloat rot = 0;
 
 
@@ -44,40 +44,12 @@ void drawCircle(float radio, float start, float end, float h, float k){
     }
 }
 
-void cuerda(){
-    glNewList(2, GL_COMPILE);
-    glPushMatrix();
-        glLineWidth(3);
-        glColor3f(0, 0, 0);
-        glBegin(GL_LINE_LOOP);
-        glVertex3f(1, 0.29, 0);
-        glVertex3f(-1, 0.71, 0);
-        glEnd();
-    glPopMatrix();
-    glPushMatrix();
-        glLineWidth(3);
-        glColor3f(0, 0, 0);
-        glBegin(GL_LINE_LOOP);
-        glVertex3f(1, -0.29, 0);
-        glVertex3f(-1, -0.72, 0);
-        glEnd();
-    glPopMatrix();
-    glPushMatrix();
-        glLineWidth(3);
-        glBegin(GL_LINE_STRIP);
-        drawCircle(0.29,-M_PI/2, M_PI/2, 1, 0);
-        drawCircle(0.715, M_PI/2, 3*M_PI/2, -1, 0);
-        glEnd();
-    glPopMatrix();
-    glEndList();
-}
-
 void display(void){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
-    glRotatef(theta[0],1.0,0.0,0.0);
-    glRotatef(theta[1],0.0,1.0,0.0);
-    glRotatef(theta[2],0.0,0.0,1.0);
+    //glRotatef(theta[0],1.0,0.0,0.0);
+    //glRotatef(theta[1],0.0,1.0,0.0);
+    //glRotatef(theta[2],0.0,0.0,1.0);
     glPushMatrix();
         glColor3f(1, 0, 0);
         glTranslatef(-1, 0.9, 0);
@@ -101,7 +73,28 @@ void display(void){
             glScalef(0.2, 0.2, 0.2);
             glCallList(miLista);
         glPopMatrix();
-        glCallList(2);
+        glPushMatrix();
+            glLineWidth(3);
+            glColor3f(0, 0, 0);
+            glBegin(GL_LINE_LOOP);
+            glVertex3f(1, 0.29, 0);
+            glVertex3f(-1, 0.71, 0);
+            glEnd();
+        glPopMatrix();
+        glPushMatrix();
+            glLineWidth(3);
+            glColor3f(0, 0, 0);
+            glBegin(GL_LINE_LOOP);
+            glVertex3f(1, -0.29, 0);
+            glVertex3f(-1, -0.71, 0);
+            glEnd();
+        glPopMatrix();
+        glPushMatrix();
+            glBegin(GL_LINE_STRIP);
+            drawCircle(0.29,-M_PI/2, M_PI/2, 1, 0);
+            drawCircle(0.71, M_PI/2, 3*M_PI/2, -1, 0);
+            glEnd();
+        glPopMatrix();
     glPopMatrix();
     glFlush();
     glutSwapBuffers();
@@ -109,16 +102,16 @@ void display(void){
 
 void girar_objeto_geometrico (){
     rot < 360 ? rot += 0.01 : rot -= 360;
-    theta[eje] += 0.02;
-    if(theta[eje]>360) theta[eje] -= 360.0;
+    //theta[eje] += 0.02;
+    //if(theta[eje]>360) theta[eje] -= 360.0;
     display();
 }
 
 void teclado(unsigned char tecla,int x,int y){
     switch(tecla){
-        case 'a' : eje = 0; break;
-        case 's' : eje = 1; break;
-        case 'd' : eje = 2; break;
+        //case 'a' : eje = 0; break;
+        //case 's' : eje = 1; break;
+        //case 'd' : eje = 2; break;
         case 'f' : exit(0) ; break;
     }
 }
@@ -142,8 +135,7 @@ int main(int argc, char **argv){
     glutInitWindowSize(1000, 1000);
     glutCreateWindow("Mi objeto bajo rotaciones");
     glClearColor(0.5, 0.5, 0.5, 1.0); // Gris
-    torus(30, 30);
-    cuerda();
+    torus(50, 50);
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
     glutIdleFunc(girar_objeto_geometrico);
