@@ -1,7 +1,1 @@
-# Carpeta .idea generada por CLion
-.idea/
-
-# Archivos de configuración específicos de CLion
-*.iml
-modules.xml
-workspace.xml
+*.exe
