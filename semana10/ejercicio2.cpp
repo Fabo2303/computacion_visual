@@ -20,22 +20,22 @@ void iniciar()
     glShadeModel(GL_FLAT);
 }
 
-void tapa(int base, int r)
+void tapa(double radius, int base, int cortes)
 {
-    int i, j, k;
-    double s, t, x, y, z, twopi;
+    double i, j, k;
+    double x, y, z, twopi;
     twopi = 2 * M_PI;
     double ang = 0;
     double av = twopi / (base);
 
-    for (i = r/2; i >= -r/2; i-=r)
+    for (i = radius / 2; i >= -radius / 2; i -= radius / 7)
     {
         glBegin(GL_POLYGON);
         for (j = 0; j < base; j++)
         {
-            x = r * cos(ang);
+            x = radius * cos(ang);
             y = i;
-            z = r * sin(ang);
+            z = radius * sin(ang);
             glVertex3f(x, y, z);
             ang += av;
         }
@@ -43,7 +43,7 @@ void tapa(int base, int r)
     }
 }
 
-void cilindro(int base, int r)
+void cilindro(double radius, int base, int cortes)
 {
     int i, j, k;
     double s, t, x, y, z, twopi;
@@ -57,11 +57,11 @@ void cilindro(int base, int r)
         glBegin(GL_LINE_LOOP);
         for (j = 0; j < 2; j++)
         {
-            for (k = r / 2; k >= -r / 2; k -= r)
+            for (k = radius / 2; k >= -radius / 2; k -= radius)
             {
-                x = r * cos(ang);
+                x = radius * cos(ang);
                 y = entrar ? -k : k;
-                z = r * sin(ang);
+                z = radius * sin(ang);
                 glVertex3f(x, y, z);
             }
             entrar = !entrar;
@@ -69,6 +69,7 @@ void cilindro(int base, int r)
         }
         glEnd();
     }
+    tapa(radius, base, cortes);
 }
 
 void display()
@@ -82,8 +83,7 @@ void display()
     glRotatef(theta[1], 0.0, 1.0, 0.0);
     glRotatef(theta[2], 0.0, 0.0, 1.0);
     glColor3f(0.0, 0.0, 1.0);
-    cilindro(10, 2);
-    tapa(10, 2);
+    cilindro(2, 10, 5);
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
