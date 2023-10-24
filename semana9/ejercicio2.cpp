@@ -7,6 +7,9 @@
 // cubo  ----  3
 
 GLfloat theta[] = {0.0, 0.0, 0.0};
+int figuras_menu, color_menu, main_menu;
+int figura_actual;
+int colorR = 0, colorG = 0, colorB = 0;
 GLint eje = 1;
 GLfloat rot = 0;
 
@@ -39,27 +42,27 @@ void torus(int numc, int numt){
 
 void cube(int lado){
     glNewList(3, GL_COMPILE);
-        glColor3f(0.5, 0.2, 0.4);
         glutSolidCube(lado);
-        glColor3f(0, 0, 0);
+        glLineWidth(1.5);
+        glColor3f(1, 1, 1);
         glutWireCube(lado);
     glEndList();
 }
 
 void piramide(){
     glNewList(4, GL_COMPILE);
-        glColor3f(0.5, 0.2, 0.4);
         glutSolidTetrahedron();
-        glColor3f(0, 0, 0);
+        glLineWidth(1.5);
+        glColor3f(1, 1, 1);
         glutWireTetrahedron();
     glEndList();
 }
 
 void esfera(double radius, int slices, int stacks){
-    glNewList(4, GL_COMPILE);
-        glColor3f(0.5, 0.2, 0.4);
+    glNewList(5, GL_COMPILE);
         glutSolidSphere(radius, slices, stacks);
-        glColor3f(0, 0, 0);
+        glLineWidth(1.5);
+        glColor3f(1, 1, 1);
         glutWireSphere(radius, slices, stacks);
     glEndList();
 }
@@ -102,6 +105,56 @@ void cuerda(){
     glEndList();
 }
 
+void menuFiguras(int value){
+    figura_actual = value;
+}
+
+void menuColores(int value){
+    switch (value)
+    {
+        case 1:
+            colorR = 1;
+            colorG = 0;
+            colorB = 0;
+            break;
+        case 2:
+            colorR = 0;
+            colorG = 1;
+            colorB = 0;
+            break;
+        default:
+            colorR = 0;
+            colorG = 0;
+            colorB = 1;
+    }
+}
+
+void menuMain(int value){
+    if(value == 100) 
+        exit(0);
+}
+
+void menu(){
+    main_menu = glutCreateMenu(menuMain);
+
+    figuras_menu = glutCreateMenu(menuFiguras);
+    glutAddMenuEntry("Torus", 1);
+    glutAddMenuEntry("Cubo", 3);
+    glutAddMenuEntry("Piramide", 4);
+    glutAddMenuEntry("Esfera", 5);
+
+    color_menu = glutCreateMenu(menuColores);
+    glutAddMenuEntry("Rojo", 1);
+    glutAddMenuEntry("Verde", 2);
+    glutAddMenuEntry("Azul", 3);
+
+    glutSetMenu(main_menu);
+    glutAddSubMenu("Figura", figuras_menu);
+    glutAddSubMenu("Color", color_menu);
+    glutAddMenuEntry("Salir", 100);
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
+}
+
 void display(void){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
@@ -110,7 +163,8 @@ void display(void){
     glRotatef(theta[2],0.0,0.0,1.0);
     glPushMatrix();
         glRotatef(rot,0.0,0.0,1.0);
-        glCallList(4);
+        glColor3f(colorR, colorG, colorB);
+        glCallList(figura_actual);
     glPopMatrix();
     glFlush();
     glutSwapBuffers();
@@ -155,6 +209,8 @@ int main(int argc, char **argv){
     cuerda();
     cube(1);
     piramide();
+    esfera(1, 20, 20);
+    menu();
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
     glutIdleFunc(girar_objeto_geometrico);
