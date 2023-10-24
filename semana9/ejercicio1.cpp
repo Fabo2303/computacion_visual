@@ -276,15 +276,15 @@ void torus(int numc, int numt){
 }
 
 void borrarLista(){
-    glDeleteLists(currentFigure, 1);
+    glDeleteLists(currentFigure, 1);  // a  
     currentFigure--;
 }
 
 void dibujarTorus(){
     glNewList(currentFigure, GL_COMPILE);
-    glScalef(scaleX, scaleY, scaleZ);
-    glTranslatef(translateX, translateY, translateZ);
-    glColor3f(colorR, colorG, colorB);
-    glCallList(miLista);
+        glScalef(scaleX, scaleY, scaleZ);
+        glTranslatef(translateX, translateY, translateZ);
+        glColor3f(colorR, colorG, colorB);
+        glCallList(miLista);
     glEndList();
 }
