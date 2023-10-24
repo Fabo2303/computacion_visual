@@ -20,6 +20,29 @@ void iniciar()
     glShadeModel(GL_FLAT);
 }
 
+void tapa(int base, int r)
+{
+    int i, j, k;
+    double s, t, x, y, z, twopi;
+    twopi = 2 * M_PI;
+    double ang = 0;
+    double av = twopi / (base);
+
+    for (i = r/2; i >= -r/2; i-=r)
+    {
+        glBegin(GL_POLYGON);
+        for (j = 0; j < base; j++)
+        {
+            x = r * cos(ang);
+            y = i;
+            z = r * sin(ang);
+            glVertex3f(x, y, z);
+            ang += av;
+        }
+        glEnd();
+    }
+}
+
 void cilindro(int base, int r)
 {
     int i, j, k;
@@ -60,6 +83,7 @@ void display()
     glRotatef(theta[2], 0.0, 0.0, 1.0);
     glColor3f(0.0, 0.0, 1.0);
     cilindro(10, 2);
+    tapa(10, 2);
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
