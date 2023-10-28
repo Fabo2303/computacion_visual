@@ -8,6 +8,7 @@
 
 void ejes(int);
 GLdouble angulo = 0, incremento_angulo = 0.1;
+GLdouble angulo2 = 0, incremento_angulo2 = 0.1;
 GLdouble const radio = 0.5;
 GLfloat px0 = 0, py0 = 0, pz0 = 5;
 GLfloat px1 = 0, py1 = 0, pz1 = 4;
@@ -22,7 +23,6 @@ void iniciar()
 
 void cubo(float lado){
     float traslado = lado*sqrt(3)/2 + lado/2;
-    std::cout<<"Traslado: "<<traslado;
     glPushMatrix();
     glTranslatef(0, traslado, 0);
     glutWireCube(lado);
@@ -54,7 +54,7 @@ void display()
     glPushMatrix();
     glLoadIdentity();
     // La camara se desplaza sobre el plano xz
-    gluLookAt(px0, 0.0, pz0, px1, 0.0, pz1, 0, 1, 0);
+    gluLookAt(px0, py0, pz0, px1, py1, pz1, 0, 1, 0);
     glColor3f(1.0, 0.0, 0.0);
     ejes(2);
     glRotatef(theta[0], 1.0, 0.0, 0.0);
@@ -81,6 +81,11 @@ void rotacamara()
     pz1 = pz0 - radio * cos(angulo);
 }
 
+void mirarAbajo(){
+    py1 = py0 + radio * sin(angulo2);
+    pz1 = pz0 - radio * cos(angulo2);
+}
+
 void avanza()
 {
     px0 = px1;
@@ -97,6 +102,20 @@ void retro()
     pz0 = pz0 + radio * cos(angulo);
 }
 
+void subir(){
+    py0 = py1;
+    pz0 = pz1;
+    py1 = py0 + radio * sin(angulo);
+    pz1 = pz0 - radio * cos(angulo);
+}
+
+void bajar(){
+    py1 = py0;
+    pz1 = pz0;
+    py0 = py0 - radio * cos(angulo);
+    pz0 = pz0 + radio * sin(angulo);
+}
+
 void teclado(unsigned char tecla, int x, int y)
 {
     switch (tecla)
@@ -107,13 +126,27 @@ void teclado(unsigned char tecla, int x, int y)
     case 'm':
         retro();
         break;
-    case 'j':
+    case 'o':
+        subir();
+        break;
+    case 'p':
+        bajar();
+        break;
+    case 'k':
         angulo = angulo + incremento_angulo;
         rotacamara();
         break;
-    case 'k':
+    case 'j':
         angulo = angulo - incremento_angulo;
         rotacamara();
+        break;
+    case 'r':
+        angulo2 = angulo2 + incremento_angulo2;
+        mirarAbajo();
+        break;
+    case 't':
+        angulo2 = angulo2 - incremento_angulo2;
+        mirarAbajo();
         break;
     case 'a':
         axis = 0;

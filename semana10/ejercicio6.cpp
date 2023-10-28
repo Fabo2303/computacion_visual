@@ -31,7 +31,7 @@ void cilindro(double radius, double base, double cortes)
     glNewList(miLista, GL_COMPILE);
     for (i = 0; i < base; i++)
     {
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_POLYGON);
         for (j = 0; j < 2; j++)
         {
             for (k = radius / 2; k >= -radius / 2; k -= radius)
@@ -49,7 +49,7 @@ void cilindro(double radius, double base, double cortes)
     ang = 0;
     for (i = radius / 2; i >= -radius / 2; i -= radius / cortes)
     {
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_POLYGON);
         for (j = 0; j < base; j++)
         {
             x = radius * cos(ang);
@@ -63,6 +63,105 @@ void cilindro(double radius, double base, double cortes)
     glEndList();
 }
 
+void cilindroAlargado()
+{
+    glPushMatrix();
+    glCallList(miLista);
+    glPopMatrix();
+}
+
+void drawCircle(float radio, float start, float end, float h, float k)
+{
+    float x, y, ang;
+    for (ang = start; ang < end; ang += 2 * M_PI / 10000)
+    {
+        x = radio * cos(ang) + h;
+        y = radio * sin(ang) + k;
+        glVertex2f(x, y);
+    }
+}
+
+void cuerda()
+{
+    glPushMatrix();
+    glColor3f(0, 0, 0);
+    glLineWidth(5);
+    glBegin(GL_LINES);
+    glVertex3f(-0.62, -1, 0);
+    glVertex3f(-0.62, 1.5, 0);
+    glEnd();
+    glBegin(GL_LINE_STRIP);
+    drawCircle(0.62, 0, M_PI, 0, 1.5);
+    glEnd();
+    glBegin(GL_LINES);
+    glVertex3f(0.62, -1, 0);
+    glVertex3f(0.62, 1.5, 0);
+    glEnd();
+    glPopMatrix();
+}
+
+void dedo()
+{
+    glPushMatrix();
+    glColor3f(0, 0, 0);
+    glLineWidth(5);
+    glBegin(GL_LINE_STRIP);
+    drawCircle(0.05, -M_PI / 2, M_PI / 2, 1.2, 0);
+    glEnd();
+    glBegin(GL_LINES);
+    glVertex3f(1, 0.05, 0);
+    glVertex3f(1.2, 0.05, 0);
+    glEnd();
+    glBegin(GL_LINES);
+    glVertex3f(1, -0.05, 0);
+    glVertex3f(1.2, -0.05, 0);
+    glEnd();
+    glPopMatrix();
+}
+
+void mano(){
+    dedo();
+    glTranslatef(0, 0.1, 0);
+    dedo();
+    glTranslatef(0, 0.1, 0);
+    dedo();
+    glTranslatef(0, 0.1, 0);
+    dedo();
+    glTranslatef(2.2, -0.7, 0);
+    glRotatef(135, 0, 0, 1);
+    dedo();
+}
+
+void nudillos(){
+    
+}
+
+void initMolecula()
+{
+    glNewList(2, GL_COMPILE);
+    glPushMatrix();
+    glColor3f(0.5, 0, 0);
+    glTranslatef(0, 1.5, 0);
+    glRotatef(90, 1, 0, 0);
+    glScalef(0.3, 0.5, 0.3);
+    cilindroAlargado();
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0, 0.5, 0.5);
+    glTranslatef(0, 1.5, 0);
+    glRotatef(90, 1, 0, 0);
+    glScalef(0.05, 0.65, 0.05);
+    cilindroAlargado();
+    glPopMatrix();
+    glPushMatrix();
+    glColor3f(0.6, 0.2, 0.5);
+    glTranslatef(-0.62, -0.62, 0);
+    glScalef(0.3, 0.5, 0.3);
+    cilindroAlargado();
+    glPopMatrix();
+    glEndList();
+}
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -73,8 +172,9 @@ void display()
     glRotatef(theta[0], 1.0, 0.0, 0.0);
     glRotatef(theta[1], 0.0, 1.0, 0.0);
     glRotatef(theta[2], 0.0, 0.0, 1.0);
-    glColor3f(0.0, 0.0, 1.0);
-    glCallList(miLista);
+    glCallList(2);
+    cuerda();
+    mano();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
@@ -123,6 +223,23 @@ void teclado(unsigned char tecla, int x, int y)
     case 'd':
         theta[2] += 5.0;
         break;
+    case 'i':
+        avanza();
+        break;
+    case 'm':
+        retro();
+        break;
+    case 'j':
+        angulo = angulo + incremento_angulo;
+        rotacamara();
+        break;
+    case 'k':
+        angulo = angulo - incremento_angulo;
+        rotacamara();
+        break;
+    case 'f':
+        exit(0);
+        break;
     }
     glutPostRedisplay();
 }
@@ -159,11 +276,12 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(500, 500);
     glutCreateWindow("CAMARA MOVIL");
-    cilindro(2, 10, 10);
+    cilindro(2, 30, 30);
+    initMolecula();
     iniciar();
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
-    //glutIdleFunc(CubeSpin);
+    // glutIdleFunc(CubeSpin);
     glutKeyboardFunc(teclado);
     glEnable(GL_DEPTH_TEST);
     glutMainLoop();

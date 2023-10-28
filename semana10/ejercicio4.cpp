@@ -13,6 +13,7 @@ GLfloat px0 = 0, py0 = 0, pz0 = 5;
 GLfloat px1 = 0, py1 = 0, pz1 = 4;
 static GLfloat theta[] = {0.0, 0.0, 0.0};
 static GLint axis = 2;
+static GLdouble radios = 1;
 
 void iniciar()
 {
@@ -63,6 +64,46 @@ void cilindro(double radius, double base, double cortes)
     glEndList();
 }
 
+void cilindroAlargado()
+{
+    glPushMatrix();
+    glCallList(miLista);
+    glPopMatrix();
+}
+
+void initMolecula()
+{
+    glNewList(2, GL_COMPILE);
+    glPushMatrix();
+    glRotatef(15, 0, 0, 1);
+    glPushMatrix();
+    glTranslatef(0, (radios * radios + 2) * radios, 0);
+    glScalef(radios / 5, 2 * radios * radios, radios / 5);
+    cilindroAlargado();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(0, (6 * radios - 1) * radios, 0);
+    glutWireSphere(radios, 20, 20);
+    glPopMatrix();
+    glPopMatrix();
+    glPushMatrix();
+    glutWireSphere(2 * radios, 20, 20);
+    glPopMatrix();
+    glPushMatrix();
+    glRotatef(-90, 0, 0, 1);
+    glPushMatrix();
+    glTranslatef(0, (radios * radios + 2) * radios, 0);
+    glScalef(radios / 5, 2 * radios * radios, radios / 5);
+    cilindroAlargado();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(0, (6 * radios - 1) * radios, 0);
+    glutWireSphere(radios, 20, 20);
+    glPopMatrix();
+    glPopMatrix();
+    glEndList();
+}
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -74,7 +115,7 @@ void display()
     glRotatef(theta[1], 0.0, 1.0, 0.0);
     glRotatef(theta[2], 0.0, 0.0, 1.0);
     glColor3f(0.0, 0.0, 1.0);
-    glCallList(miLista);
+    glCallList(2);
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
@@ -123,6 +164,23 @@ void teclado(unsigned char tecla, int x, int y)
     case 'd':
         theta[2] += 5.0;
         break;
+    case 'i':
+        avanza();
+        break;
+    case 'm':
+        retro();
+        break;
+    case 'j':
+        angulo = angulo + incremento_angulo;
+        rotacamara();
+        break;
+    case 'k':
+        angulo = angulo - incremento_angulo;
+        rotacamara();
+        break;
+    case 'f':
+        exit(0);
+        break;
     }
     glutPostRedisplay();
 }
@@ -159,11 +217,12 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(500, 500);
     glutCreateWindow("CAMARA MOVIL");
-    cilindro(2, 10, 10);
+    cilindro(radios, 10, 10);
+    initMolecula();
     iniciar();
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
-    //glutIdleFunc(CubeSpin);
+    // glutIdleFunc(CubeSpin);
     glutKeyboardFunc(teclado);
     glEnable(GL_DEPTH_TEST);
     glutMainLoop();

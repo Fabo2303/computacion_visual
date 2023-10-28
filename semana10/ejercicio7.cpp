@@ -20,7 +20,7 @@ void iniciar()
     glShadeModel(GL_FLAT);
 }
 
-void cilindro(double radius, double base, double cortes)
+void cilindro(double radius, double base, double menor)
 {
     double i, j, k;
     double x, y, z, twopi;
@@ -31,7 +31,7 @@ void cilindro(double radius, double base, double cortes)
     glNewList(miLista, GL_COMPILE);
     for (i = 0; i < base; i++)
     {
-        glBegin(GL_LINE_LOOP);
+        glBegin(GL_POLYGON);
         for (j = 0; j < 2; j++)
         {
             for (k = radius / 2; k >= -radius / 2; k -= radius)
@@ -46,17 +46,22 @@ void cilindro(double radius, double base, double cortes)
         }
         glEnd();
     }
-    ang = 0;
-    for (i = radius / 2; i >= -radius / 2; i -= radius / cortes)
+    
+    for (j = -1; j <= 1; j += 2)
     {
-        glBegin(GL_LINE_LOOP);
-        for (j = 0; j < base; j++)
+        glBegin(GL_TRIANGLE_STRIP);
+        for (i = 0; i <= base; i++)
         {
-            x = radius * cos(ang);
-            y = i;
-            z = radius * sin(ang);
-            glVertex3f(x, y, z);
-            ang += av;
+            float ang = 2.0f * 3.1415926f * i / base;
+            float xM = radius * cos(ang);
+            float yM = j * radius / 2;
+            float zM = radius * sin(ang);
+            float xm = menor * cos(ang);
+            float ym = j * radius / 2;
+            float zm = menor * sin(ang);
+
+            glVertex3f(xM, yM, zM);
+            glVertex3f(xm, ym, zm);
         }
         glEnd();
     }
@@ -159,11 +164,11 @@ int main(int argc, char **argv)
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
     glutInitWindowSize(500, 500);
     glutCreateWindow("CAMARA MOVIL");
-    cilindro(2, 10, 10);
+    cilindro(1, 100, 0.5);
     iniciar();
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
-    //glutIdleFunc(CubeSpin);
+    // glutIdleFunc(CubeSpin);
     glutKeyboardFunc(teclado);
     glEnable(GL_DEPTH_TEST);
     glutMainLoop();

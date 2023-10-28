@@ -63,6 +63,82 @@ void cilindro(double radius, double base, double cortes)
     glEndList();
 }
 
+void cilindroAlargado()
+{
+    glPushMatrix();
+    glCallList(miLista);
+    glPopMatrix();
+}
+
+void initMolecula()
+{
+    glNewList(2, GL_COMPILE);
+    glTranslatef(2, 2, -2);
+    glPushMatrix();
+    glColor3f(1, 0, 0);
+    glutWireSphere(2, 20, 20);
+    glPushMatrix();
+    glRotatef(90, 0, 0, 1);
+    glPushMatrix();
+    glColor3f(1, 0, 0);
+    glTranslatef(0, 4, 0);
+    glScalef(0.3, 2, 0.3);
+    cilindroAlargado();
+    glPopMatrix();
+    glPopMatrix();
+    glPushMatrix();
+    glRotatef(180, 1, 0, 0);
+    glPushMatrix();
+    glColor3f(1, 0, 0);
+    glTranslatef(0, 3, 0);
+    glScalef(0.3, 1, 0.3);
+    cilindroAlargado();
+    glPopMatrix();
+    glPopMatrix();
+    glPushMatrix();
+    glRotatef(-45, 1, 0, 1);
+    glPushMatrix();
+        glPushMatrix();
+        glColor3f(1, 0, 0);
+        glTranslatef(0, 3, 0);
+        glScalef(0.3, 1, 0.3);
+        cilindroAlargado();
+        glPopMatrix();
+        glPushMatrix();
+        glColor3f(0, 0, 0);
+        glTranslatef(0, 5, 0);
+        glScalef(0.3, 1, 0.3);
+        cilindroAlargado();
+        glPopMatrix();
+        glColor3f(0, 0, 0);
+        glTranslatef(0, 7.5, 0);
+        glutWireSphere(1.5, 20, 20);
+    glPopMatrix();
+    glPopMatrix();
+    glEndList();
+}
+
+void cubanoSuperior(){
+    glPushMatrix();
+    glCallList(2);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-4, 0, 0);
+        glRotatef(90, 0, 1, 0);
+        glCallList(2);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(-4, 0, 4);
+        glRotatef(180, 0, 1, 0);
+        glCallList(2);
+    glPopMatrix();
+    glPushMatrix();
+        glTranslatef(0, 0, 4);
+        glRotatef(270, 0, 1, 0);
+        glCallList(2);
+    glPopMatrix();
+}
+
 void display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -73,8 +149,14 @@ void display()
     glRotatef(theta[0], 1.0, 0.0, 0.0);
     glRotatef(theta[1], 0.0, 1.0, 0.0);
     glRotatef(theta[2], 0.0, 0.0, 1.0);
-    glColor3f(0.0, 0.0, 1.0);
-    glCallList(miLista);
+    glPushMatrix();
+    cubanoSuperior();
+    glPopMatrix();
+    glPushMatrix();
+    glTranslatef(0, -4, 0);
+    glScalef(1.0f, -1.0f, 1.0f); //Reflexion eje Y
+    cubanoSuperior();
+    glPopMatrix();
     glFlush();
     glPopMatrix();
     glutSwapBuffers();
@@ -123,6 +205,23 @@ void teclado(unsigned char tecla, int x, int y)
     case 'd':
         theta[2] += 5.0;
         break;
+    case 'i':
+        avanza();
+        break;
+    case 'm':
+        retro();
+        break;
+    case 'j':
+        angulo = angulo + incremento_angulo;
+        rotacamara();
+        break;
+    case 'k':
+        angulo = angulo - incremento_angulo;
+        rotacamara();
+        break;
+    case 'f':
+        exit(0);
+        break;
     }
     glutPostRedisplay();
 }
@@ -160,10 +259,11 @@ int main(int argc, char **argv)
     glutInitWindowSize(500, 500);
     glutCreateWindow("CAMARA MOVIL");
     cilindro(2, 10, 10);
+    initMolecula();
     iniciar();
     glutReshapeFunc(myReshape);
     glutDisplayFunc(display);
-    //glutIdleFunc(CubeSpin);
+    // glutIdleFunc(CubeSpin);
     glutKeyboardFunc(teclado);
     glEnable(GL_DEPTH_TEST);
     glutMainLoop();
