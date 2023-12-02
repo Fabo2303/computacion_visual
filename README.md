@@ -12,3 +12,5 @@ para obtener el programa CLion.
 
 El programa que estes usando debe estar configurado para el uso
 de openGL.
+
+Se recomienda siempre usar el include<GL/glut.h>
